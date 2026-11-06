@@ -63,3 +63,6 @@ server.log
 # La base SQLite n'est pas utile dans le dépôt (aucune donnée nécessaire)
 # Résultats internes des outils (ne pas versionner)
 tool-results/
+
+# Export statique GitHub Pages
+/.next-pages/

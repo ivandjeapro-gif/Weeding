@@ -48,7 +48,13 @@ git push -u origin main
 
 ## 🌍 Mettre en ligne (partage aux invités)
 
-Le plus simple : importer le dépôt sur [Vercel](https://vercel.com) (gratuit) — `Next.js` est détecté automatiquement, aucune configuration requise. Vous obtenez un lien du type `https://invitation-mariage-norbe-ericka.vercel.app` à envoyer aux invités.
+**GitHub Pages — automatique !** Le workflow `.github/workflows/deploy-pages.yml` construit et publie le site à chaque push sur `main` :
+
+> 💌 **https://ivandjeapro-gif.github.io/Weeding/**
+
+*(Prérequis : dans **Settings → Pages**, choisir « GitHub Actions » comme Source — activé automatiquement via l'API.)*
+
+**Alternative** : importer le dépôt sur [Vercel](https://vercel.com) (gratuit) — `Next.js` est détecté automatiquement, aucune configuration requise.
 
 ---
 
