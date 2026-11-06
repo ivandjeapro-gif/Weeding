@@ -61,3 +61,5 @@ server.log
 /mini-services/
 /Caddyfile
 # La base SQLite n'est pas utile dans le dépôt (aucune donnée nécessaire)
+# Résultats internes des outils (ne pas versionner)
+tool-results/

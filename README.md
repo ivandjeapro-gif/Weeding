@@ -18,7 +18,7 @@ Une invitation de mariage web avec **grande porte de célébration animée** : l
 | 🌹 Pluie de pétales | Pétales de roses animés (terracotta, crème, olive) pendant toute la lecture |
 | 🔁 Bouton « Revoir l'ouverture » | Pour rejouer l'animation de la porte à volonté |
 | ♿ Accessibilité | Navigation clavier, `aria-label`, mode `prefers-reduced-motion` |
-| 📱 Responsive | Conçu mobile d'abord, parfait sur téléphone et ordinateur |
+| 📱 Mobile & responsive | Mobile-first : `dvh` dynamique, safe areas (encoche iPhone), compact en paysage et sur petits écrans (320px+), cibles tactiles ≥ 44px, aucun débordement horizontal |
 
 ## 🛠️ Stack technique
 

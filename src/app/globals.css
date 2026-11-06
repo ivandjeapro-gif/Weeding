@@ -194,7 +194,15 @@
   justify-content: center;
   gap: clamp(0.9rem, 2.4vh, 1.8rem);
   padding: 1rem;
+  /* Safe areas (encoche iPhone, barres système) */
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
   overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  overscroll-behavior: none;
   background:
     radial-gradient(120% 90% at 50% -10%, #fff8ea 0%, var(--wed-cream) 45%, #f1e2c8 100%);
   transition: opacity 1.15s ease;
@@ -236,10 +244,13 @@
 .door-names {
   font-family: var(--wed-font-serif), serif;
   font-weight: 600;
-  font-size: clamp(2.1rem, 7.5vw, 3.4rem);
+  /* 8.5vw : reste lisible de 320px jusqu'au desktop sans déborder */
+  font-size: clamp(1.7rem, 8.5vw, 3.4rem);
   line-height: 1.05;
   color: var(--wed-terra-deep);
   letter-spacing: 0.04em;
+  text-wrap: balance;
+  max-width: 94vw;
 }
 .door-names .amp {
   color: var(--wed-olive);
@@ -249,7 +260,7 @@
 }
 .door-date-script {
   font-family: var(--wed-font-script), cursive;
-  font-size: clamp(1.5rem, 5.4vw, 2.1rem);
+  font-size: clamp(1.3rem, 5.4vw, 2.1rem);
   color: var(--wed-gold-deep);
 }
 
@@ -263,6 +274,7 @@
   cursor: pointer;
   border-radius: 999px 999px 22px 22px;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .door-button:focus-visible {
   outline: 3px solid var(--wed-gold);
@@ -314,10 +326,95 @@
   box-shadow: inset 0 0 24px rgba(90, 40, 10, 0.55);
   width: min(76vw, 330px);
   height: min(56vh, 470px);
+  /* dvh : suit la barre d'adresse des navigateurs mobiles */
+  height: min(56dvh, 470px);
 }
 @media (max-height: 700px) {
   .door-wall {
     height: min(52vh, 440px);
+    height: min(52dvh, 440px);
+  }
+}
+
+/* ---------- Adaptations mobile ---------- */
+
+/* Très petits téléphones (≤ 380px) : on respire davantage */
+@media (max-width: 380px) {
+  .door-label {
+    letter-spacing: 0.24em;
+  }
+  .corner-floral {
+    width: clamp(84px, 24vw, 130px);
+  }
+  .prog-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Téléphones en paysage (écran peu haut) : scène compacte verticale */
+@media (orientation: landscape) and (max-height: 500px) {
+  .door-overlay {
+    gap: 0.3rem;
+    padding-top: max(0.4rem, env(safe-area-inset-top));
+    padding-bottom: max(0.4rem, env(safe-area-inset-bottom));
+  }
+  .door-intro svg {
+    display: none;
+  }
+  .door-names {
+    font-size: 1.4rem;
+    line-height: 1.15;
+  }
+  .door-date-script {
+    font-size: 1.05rem;
+  }
+  .door-wall {
+    width: min(46vw, 240px);
+    height: min(46dvh, 400px);
+  }
+  .door-threshold {
+    width: min(52vw, 276px);
+    margin-top: -2px;
+  }
+  .door-shadow {
+    width: min(44vw, 240px);
+    margin-top: 2px;
+    height: 12px;
+  }
+  .door-hint-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.66rem;
+  }
+  .door-crest {
+    width: 38px;
+    height: 38px;
+    top: -18px;
+  }
+}
+
+/* Petits téléphones en portrait (ex. iPhone SE, 320-620px de haut) */
+@media (orientation: portrait) and (max-height: 620px) {
+  .door-overlay {
+    gap: 0.4rem;
+  }
+  .door-intro svg {
+    height: 40px;
+    width: auto;
+  }
+  .door-names {
+    font-size: 1.5rem;
+  }
+  .door-date-script {
+    font-size: 1.15rem;
+  }
+  .door-wall {
+    height: min(46dvh, 380px);
+  }
+  .door-hint-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
   }
 }
 
@@ -550,7 +647,13 @@
 .invitation-root {
   position: relative;
   min-height: 100vh;
+  /* dvh : évite le décalage causé par la barre d'adresse mobile */
+  min-height: 100dvh;
   padding: clamp(0.75rem, 3vw, 2.5rem) clamp(0.4rem, 2vw, 1.25rem);
+  /* Safe areas : le contenu ne colle jamais aux bords de l'écran */
+  padding-bottom: max(clamp(0.75rem, 3vw, 2.5rem), env(safe-area-inset-bottom));
+  padding-left: max(clamp(0.4rem, 2vw, 1.25rem), env(safe-area-inset-left));
+  padding-right: max(clamp(0.4rem, 2vw, 1.25rem), env(safe-area-inset-right));
   background:
     radial-gradient(110% 70% at 50% -8%, #fff8ea 0%, var(--wed-cream) 42%, #f2e3c9 100%);
 }
@@ -579,7 +682,7 @@
 .corner-floral {
   position: absolute;
   pointer-events: none;
-  width: clamp(120px, 30vw, 190px);
+  width: clamp(96px, 28vw, 190px);
   height: auto;
   opacity: 0.94;
 }
@@ -669,7 +772,7 @@
   border: 2px solid rgba(238, 196, 106, 0.9);
   border-radius: 10px;
   box-shadow: 0 10px 26px -8px rgba(158, 68, 35, 0.55), inset 0 1px 1px rgba(255, 220, 160, 0.4);
-  padding: 0.8rem clamp(1.4rem, 6vw, 2.6rem);
+  padding: 0.8rem clamp(1.1rem, 5vw, 2.6rem);
 }
 .date-banner::before,
 .date-banner::after {
@@ -694,8 +797,9 @@
 .date-text {
   font-family: var(--wed-font-serif), serif;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  font-size: clamp(1.4rem, 5.6vw, 2.1rem);
+  letter-spacing: 0.1em;
+  font-size: clamp(1.25rem, 5.2vw, 2.1rem);
+  white-space: nowrap;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
 }
@@ -808,6 +912,7 @@
 .replay-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
   font-family: var(--wed-font-label), sans-serif;
   font-size: 0.7rem;
@@ -818,8 +923,11 @@
   border: 1px solid rgba(201, 162, 75, 0.55);
   background: rgba(255, 250, 238, 0.7);
   border-radius: 9999px;
-  padding: 0.5rem 1rem;
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
   transition: all 0.25s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .replay-btn:hover {
   background: rgba(201, 162, 75, 0.14);

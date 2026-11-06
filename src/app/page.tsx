@@ -38,10 +38,13 @@ export default function Home() {
   useEffect(() => clearTimers, [clearTimers]);
 
   // Verrouille le défilement tant que la porte est fermée
+  // (html + body : nécessaire sur iOS Safari pour bloquer le rebond élastique)
   useEffect(() => {
     const scrollable = phase === "fading" || phase === "opened";
+    document.documentElement.style.overflow = scrollable ? "" : "hidden";
     document.body.style.overflow = scrollable ? "" : "hidden";
     return () => {
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
   }, [phase]);
