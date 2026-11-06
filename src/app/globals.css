@@ -1,0 +1,917 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ==========================================================
+   MARIAGE — NORBÉ & ERICKA
+   Grande porte de célébration + invitation florale et dorée
+   ========================================================== */
+
+@theme inline {
+  --font-serif: var(--wed-font-serif);
+  --font-script: var(--wed-font-script);
+  --font-label: var(--wed-font-label);
+}
+
+:root {
+  /* Polices élégantes (chargées via link CDN Google Fonts dans layout.tsx) */
+  --wed-font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --wed-font-script: "Great Vibes", "Brush Script MT", cursive;
+  --wed-font-label: "Montserrat", "Segoe UI", sans-serif;
+
+  --wed-cream: #fbf4e7;
+  --wed-cream-2: #f7ecdb;
+  --wed-paper: #fdf9f0;
+  --wed-terra: #c1552c;
+  --wed-terra-deep: #9e4423;
+  --wed-terra-soft: #e0925f;
+  --wed-olive: #5f6f3c;
+  --wed-olive-deep: #47542e;
+  --wed-gold: #c9a24b;
+  --wed-gold-light: #e8c877;
+  --wed-gold-deep: #a67f2e;
+  --wed-ink: #4a3728;
+  --wed-wood-1: #6b3520;
+  --wed-wood-2: #8f4d2d;
+  --wed-wood-3: #542a18;
+}
+
+/* ---------- Fond bokeh doré (partagé) ---------- */
+.bokeh-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bokeh {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(14px);
+  opacity: 0.5;
+  animation: bokehFloat 8s ease-in-out infinite alternate;
+}
+@keyframes bokehFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-26px) scale(1.12);
+    opacity: 0.42;
+  }
+}
+
+/* ---------- Overlay : scène de la porte ---------- */
+.door-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.9rem, 2.4vh, 1.8rem);
+  padding: 1rem;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% -10%, #fff8ea 0%, var(--wed-cream) 45%, #f1e2c8 100%);
+  transition: opacity 1.15s ease;
+}
+.door-overlay.is-fading {
+  opacity: 0;
+  pointer-events: none;
+}
+.door-overlay::after {
+  /* vignette chaleureuse */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(85% 70% at 50% 42%, transparent 55%, rgba(126, 66, 26, 0.14) 100%);
+}
+
+.door-intro,
+.door-hint {
+  position: relative;
+  z-index: 25;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.door-overlay.is-opening .door-intro,
+.door-overlay.is-opening .door-hint {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.door-label {
+  font-family: var(--wed-font-label), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: clamp(0.6rem, 2.4vw, 0.8rem);
+  color: var(--wed-olive-deep);
+}
+.door-names {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 600;
+  font-size: clamp(2.1rem, 7.5vw, 3.4rem);
+  line-height: 1.05;
+  color: var(--wed-terra-deep);
+  letter-spacing: 0.04em;
+}
+.door-names .amp {
+  color: var(--wed-olive);
+  font-style: italic;
+  font-weight: 500;
+  padding: 0 0.12em;
+}
+.door-date-script {
+  font-family: var(--wed-font-script), cursive;
+  font-size: clamp(1.5rem, 5.4vw, 2.1rem);
+  color: var(--wed-gold-deep);
+}
+
+/* ---------- La porte ---------- */
+.door-button {
+  position: relative;
+  z-index: 20;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 999px 999px 22px 22px;
+  -webkit-tap-highlight-color: transparent;
+}
+.door-button:focus-visible {
+  outline: 3px solid var(--wed-gold);
+  outline-offset: 8px;
+}
+.door-overlay.is-opening .door-button {
+  pointer-events: none;
+}
+
+.door-frame {
+  position: relative;
+  padding: clamp(8px, 1.6vw, 12px);
+  border-radius: 999px 999px 20px 20px;
+  background: linear-gradient(165deg, #ecd28c 0%, var(--wed-gold) 38%, #97702a 78%, #b98f3d 100%);
+  box-shadow:
+    0 24px 60px -12px rgba(110, 54, 20, 0.4),
+    0 6px 18px rgba(110, 54, 20, 0.22),
+    inset 0 1px 2px rgba(255, 244, 214, 0.85),
+    inset 0 -2px 4px rgba(84, 42, 8, 0.4);
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+.door-button:hover .door-frame {
+  box-shadow:
+    0 30px 70px -12px rgba(110, 54, 20, 0.5),
+    0 8px 22px rgba(110, 54, 20, 0.28),
+    inset 0 1px 2px rgba(255, 244, 214, 0.9),
+    inset 0 -2px 4px rgba(84, 42, 8, 0.4);
+}
+.door-crest {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #f2dc9d, var(--wed-gold) 60%, #8f6b24 100%);
+  box-shadow: 0 4px 10px rgba(110, 54, 20, 0.35), inset 0 1px 1px rgba(255, 248, 220, 0.9);
+  z-index: 30;
+}
+
+.door-wall {
+  position: relative;
+  border-radius: 999px 999px 14px 14px;
+  overflow: hidden;
+  background: radial-gradient(70% 55% at 50% 42%, #ffe9b8 0%, #f5c877 45%, #d9994e 100%);
+  box-shadow: inset 0 0 24px rgba(90, 40, 10, 0.55);
+  width: min(76vw, 330px);
+  height: min(56vh, 470px);
+}
+@media (max-height: 700px) {
+  .door-wall {
+    height: min(52vh, 440px);
+  }
+}
+
+.door-glow {
+  position: absolute;
+  inset: -40%;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 45%, rgba(255, 236, 178, 0.95) 0%, rgba(250, 200, 110, 0.55) 40%, transparent 72%);
+  opacity: 0.55;
+  transform: scale(0.9);
+  transition: opacity 3s ease, transform 3s ease;
+}
+.door-button:hover .door-glow {
+  opacity: 0.8;
+}
+.door-overlay.is-opening .door-glow {
+  opacity: 1;
+  transform: scale(1.45);
+}
+
+.door-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  perspective: 1250px;
+  perspective-origin: 50% 45%;
+}
+
+.door-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.4%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+  transition: transform 2.9s cubic-bezier(0.62, 0.02, 0.32, 1), filter 2.9s ease;
+  background:
+    repeating-linear-gradient(90deg, rgba(46, 20, 6, 0.14) 0 2px, transparent 2px 52px),
+    linear-gradient(102deg, var(--wed-wood-1) 0%, var(--wed-wood-2) 42%, var(--wed-wood-1) 74%, var(--wed-wood-3) 100%);
+  box-shadow:
+    inset 0 0 0 3px rgba(212, 175, 55, 0.5),
+    inset 0 0 0 5px rgba(59, 26, 10, 0.65),
+    inset 4px 0 10px rgba(255, 208, 130, 0.12);
+}
+.door-panel.left {
+  left: 0;
+  border-radius: 999px 0 0 10px;
+  transform-origin: left center;
+  box-shadow:
+    inset -3px 0 6px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 3px rgba(212, 175, 55, 0.5),
+    inset 0 0 0 5px rgba(59, 26, 10, 0.65);
+}
+.door-panel.right {
+  right: 0;
+  border-radius: 0 999px 10px 0;
+  transform-origin: right center;
+  box-shadow:
+    inset 3px 0 6px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 3px rgba(212, 175, 55, 0.5),
+    inset 0 0 0 5px rgba(59, 26, 10, 0.65);
+}
+.door-overlay.is-opening .door-panel.left {
+  transform: rotateY(-114deg);
+  filter: brightness(0.6) saturate(0.85);
+}
+.door-overlay.is-opening .door-panel.right {
+  transform: rotateY(114deg);
+  filter: brightness(0.6) saturate(0.85);
+}
+
+/* panneaux sculptés sur chaque vantail */
+.panel-inset {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  border-radius: 999px 999px 8px 8px;
+  background: linear-gradient(100deg, rgba(0, 0, 0, 0.22), rgba(255, 200, 120, 0.08) 55%, rgba(0, 0, 0, 0.18));
+  border: 2px solid rgba(212, 175, 55, 0.42);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(255, 214, 140, 0.12);
+  display: grid;
+  place-items: center;
+}
+.panel-inset.upper {
+  top: 7%;
+  height: 52%;
+}
+.panel-inset.lower {
+  bottom: 6%;
+  height: 26%;
+  border-radius: 10px;
+}
+.panel-initial {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 600;
+  color: rgba(224, 186, 104, 0.9);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45), 0 0 14px rgba(232, 200, 119, 0.35);
+}
+.panel-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 46%;
+}
+.panel-lines span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), transparent);
+}
+
+.handle-plate {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 44px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #97702a, #6f4d16);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+.handle-ring {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 5px solid;
+  border-color: #e3c470 #a87f2c #97702a #d9b655;
+  box-shadow:
+    0 3px 7px rgba(0, 0, 0, 0.45),
+    inset 0 1px 2px rgba(255, 244, 200, 0.75);
+  animation: handleShine 4.5s ease-in-out infinite;
+}
+@keyframes handleShine {
+  0%, 100% {
+    filter: brightness(0.95);
+  }
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+/* seuil doré sous la porte */
+.door-threshold {
+  position: relative;
+  z-index: 20;
+  width: min(84vw, 366px);
+  height: 9px;
+  border-radius: 6px;
+  margin-top: -4px;
+  background: linear-gradient(90deg, #8f6b24, var(--wed-gold) 30%, #ecd28c 50%, var(--wed-gold) 70%, #8f6b24);
+  box-shadow: 0 6px 14px rgba(110, 54, 20, 0.35);
+}
+.door-shadow {
+  position: relative;
+  z-index: 19;
+  width: min(70vw, 300px);
+  height: 18px;
+  margin-top: 6px;
+  border-radius: 9999px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(93, 48, 16, 0.35), transparent 70%);
+  filter: blur(4px);
+}
+
+/* étincelles dorées à l'ouverture */
+.spark {
+  position: absolute;
+  z-index: 26;
+  top: 42%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #fff3d0, var(--wed-gold-light) 60%, transparent 75%);
+  opacity: 0;
+  pointer-events: none;
+}
+.door-overlay.is-opening .spark {
+  animation: sparkUp 1.5s ease-out forwards;
+  animation-delay: var(--d, 0.4s);
+}
+@keyframes sparkUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.4);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx, 0px)), -110px) scale(1.05);
+  }
+}
+
+.door-hint-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--wed-font-label), sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.72rem, 2.8vw, 0.9rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wed-terra-deep);
+  background: rgba(255, 250, 238, 0.75);
+  border: 1px solid rgba(201, 162, 75, 0.55);
+  border-radius: 9999px;
+  padding: 0.65rem 1.3rem;
+  box-shadow: 0 8px 24px -8px rgba(158, 68, 35, 0.35);
+  animation: hintPulse 2.2s ease-in-out infinite;
+  backdrop-filter: blur(4px);
+}
+@keyframes hintPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 24px -8px rgba(158, 68, 35, 0.35);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px -8px rgba(158, 68, 35, 0.5);
+  }
+}
+
+/* ---------- Invitation ---------- */
+.invitation-root {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(0.75rem, 3vw, 2.5rem) clamp(0.4rem, 2vw, 1.25rem);
+  background:
+    radial-gradient(110% 70% at 50% -8%, #fff8ea 0%, var(--wed-cream) 42%, #f2e3c9 100%);
+}
+.inv-card {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  background:
+    radial-gradient(120% 60% at 50% 0%, #fffdf7 0%, var(--wed-paper) 55%, #faf2e2 100%);
+  border: 1px solid rgba(201, 162, 75, 0.7);
+  box-shadow:
+    0 24px 60px -20px rgba(120, 62, 24, 0.3),
+    0 4px 14px rgba(120, 62, 24, 0.12);
+  border-radius: 4px;
+  padding: clamp(1.4rem, 4.5vw, 3rem) clamp(1.1rem, 5vw, 3.2rem) clamp(1.6rem, 4.5vw, 2.6rem);
+  overflow: hidden;
+}
+.inv-card::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(201, 162, 75, 0.45);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.corner-floral {
+  position: absolute;
+  pointer-events: none;
+  width: clamp(120px, 30vw, 190px);
+  height: auto;
+  opacity: 0.94;
+}
+.corner-tl {
+  top: 0;
+  left: 0;
+}
+.corner-tr {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+  opacity: 0.8;
+}
+.corner-br {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+  opacity: 0.8;
+}
+
+.inv-label {
+  font-family: var(--wed-font-label), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wed-olive-deep);
+  font-size: clamp(0.62rem, 2.6vw, 0.82rem);
+  line-height: 1.9;
+}
+
+.name-serif {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  font-size: clamp(2.9rem, 11.5vw, 4.8rem);
+}
+.name-terra {
+  color: var(--wed-terra);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.name-olive {
+  color: var(--wed-olive-deep);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.verse {
+  font-family: var(--wed-font-serif), serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--wed-ink);
+  font-size: clamp(0.98rem, 3.6vw, 1.22rem);
+  line-height: 1.65;
+}
+.verse-ref {
+  font-family: var(--wed-font-label), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--wed-terra-deep);
+}
+
+.invite-text {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 500;
+  color: var(--wed-ink);
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  line-height: 1.7;
+}
+.invite-strong {
+  color: var(--wed-terra);
+  font-weight: 700;
+}
+
+/* Bandeau date façon ruban */
+.date-banner {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(150deg, #d3683a 0%, var(--wed-terra) 45%, var(--wed-terra-deep) 100%);
+  color: #fff8ec;
+  border: 2px solid rgba(238, 196, 106, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 10px 26px -8px rgba(158, 68, 35, 0.55), inset 0 1px 1px rgba(255, 220, 160, 0.4);
+  padding: 0.8rem clamp(1.4rem, 6vw, 2.6rem);
+}
+.date-banner::before,
+.date-banner::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 26px;
+  height: 74%;
+  background: linear-gradient(150deg, #b34d28, #8f3a1e);
+  z-index: -1;
+}
+.date-banner::before {
+  left: -16px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 9px 50%);
+  border-radius: 6px 0 0 6px;
+}
+.date-banner::after {
+  right: -16px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 50%, 100% 100%, 0 100%);
+  border-radius: 0 6px 6px 0;
+}
+.date-text {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: clamp(1.4rem, 5.6vw, 2.1rem);
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+/* Compte à rebours */
+.cd-box {
+  background: rgba(255, 250, 238, 0.85);
+  border: 1.5px solid rgba(201, 162, 75, 0.65);
+  border-radius: 14px;
+  padding: 0.7rem 0.3rem 0.6rem;
+  min-width: 64px;
+  box-shadow: 0 6px 16px -8px rgba(120, 62, 24, 0.35);
+}
+.cd-num {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5.5vw, 2rem);
+  line-height: 1;
+  color: var(--wed-terra-deep);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+.cd-label {
+  font-family: var(--wed-font-label), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wed-olive);
+  margin-top: 0.3rem;
+}
+
+/* Programme */
+.prog-line {
+  position: relative;
+}
+.prog-line::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 18px;
+  bottom: 18px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(201, 162, 75, 0.8), rgba(201, 162, 75, 0.25));
+}
+.prog-dot {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #f2dc9d, var(--wed-gold) 65%, #97702a);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.25);
+}
+.prog-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  color: #fff8ec;
+  flex-shrink: 0;
+  box-shadow: 0 8px 18px -6px rgba(90, 45, 15, 0.5), inset 0 1px 1px rgba(255, 235, 190, 0.5);
+}
+.prog-icon.olive {
+  background: radial-gradient(circle at 35% 28%, #7c8c4e, var(--wed-olive) 60%, var(--wed-olive-deep));
+}
+.prog-icon.terra {
+  background: radial-gradient(circle at 35% 28%, #d97e4e, var(--wed-terra) 60%, var(--wed-terra-deep));
+}
+.prog-time {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 700;
+  color: var(--wed-terra);
+  font-size: clamp(1.45rem, 5.4vw, 1.9rem);
+  line-height: 1.1;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+.prog-place {
+  font-family: var(--wed-font-serif), serif;
+  font-weight: 600;
+  color: var(--wed-ink);
+  font-size: clamp(1.02rem, 3.9vw, 1.25rem);
+  line-height: 1.45;
+}
+.prog-chip {
+  display: inline-block;
+  font-family: var(--wed-font-label), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wed-olive-deep);
+  background: rgba(143, 154, 91, 0.14);
+  border: 1px solid rgba(143, 154, 91, 0.4);
+  border-radius: 9999px;
+  padding: 0.22rem 0.65rem;
+}
+
+.script-closing {
+  font-family: var(--wed-font-script), cursive;
+  color: var(--wed-terra-deep);
+  font-size: clamp(1.9rem, 7vw, 2.8rem);
+  line-height: 1.3;
+}
+
+.replay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--wed-font-label), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wed-gold-deep);
+  border: 1px solid rgba(201, 162, 75, 0.55);
+  background: rgba(255, 250, 238, 0.7);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  transition: all 0.25s ease;
+}
+.replay-btn:hover {
+  background: rgba(201, 162, 75, 0.14);
+  color: var(--wed-terra-deep);
+  transform: translateY(-2px);
+}
+
+/* ---------- Animations d'apparition ---------- */
+.reveal {
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.22, 0.8, 0.36, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Pétales qui tombent ---------- */
+.petal-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+.petal-fall {
+  position: absolute;
+  top: -8vh;
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+@keyframes petalFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  7% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(118vh);
+    opacity: 0;
+  }
+}
+.petal-sway {
+  display: block;
+  animation-name: petalSway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 10%;
+  will-change: transform;
+}
+@keyframes petalSway {
+  0%, 100% {
+    transform: translateX(calc(var(--sway, 16px) * -1)) rotate(-24deg);
+  }
+  50% {
+    transform: translateX(var(--sway, 16px)) rotate(22deg);
+  }
+}
+
+/* ---------- Accessibilité : mouvement réduit ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .door-panel,
+  .door-glow,
+  .door-overlay {
+    transition-duration: 0.45s !important;
+  }
+  .bokeh,
+  .handle-ring,
+  .door-hint-btn {
+    animation: none !important;
+  }
+  .petal-fall,
+  .petal-sway {
+    animation-duration: 30s !important;
+  }
+  .reveal {
+    animation-duration: 0.01s !important;
+    animation-delay: 0s !important;
+    opacity: 1;
+  }
+}
