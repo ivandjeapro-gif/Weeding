@@ -66,3 +66,6 @@ tool-results/
 
 # Export statique GitHub Pages
 /.next-pages/
+
+# Captures et scripts de vérification internes
+/scripts/
