@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Church, Landmark, RotateCcw, Wine } from "lucide-react";
+import coupleCutout from "@/assets/norbe-ericka.webp";
 import {
   AmpMedallion,
   BokehBackground,
@@ -9,6 +11,16 @@ import {
   RingsLaurel,
 } from "./ornaments";
 import { Countdown } from "./countdown";
+
+/** Petites étoiles dorées qui scintillent autour de l'arche du portrait */
+const HERO_SPARKS: Array<{ style: React.CSSProperties }> = [
+  { style: { top: "7%", left: "-2.5%", "--d": "0.9s" } as React.CSSProperties },
+  { style: { top: "17%", right: "-3%", "--d": "1.8s" } as React.CSSProperties },
+  { style: { top: "43%", left: "-4%", "--d": "2.6s" } as React.CSSProperties },
+  { style: { top: "58%", right: "-2.5%", "--d": "1.3s" } as React.CSSProperties },
+  { style: { top: "84%", left: "6%", "--d": "2.2s" } as React.CSSProperties },
+  { style: { top: "88%", right: "9%", "--d": "3.4s" } as React.CSSProperties },
+];
 
 const PROGRAMME = [
   {
@@ -70,25 +82,46 @@ export function Invitation({ onReplay }: { onReplay: () => void }) {
               <HeartDivider className="w-44 sm:w-52 mx-auto mt-3" />
             </header>
 
+            {/* Portrait du couple dans son arche dorée */}
+            <div className="couple-hero reveal" style={d("0.14s")}>
+              <div className="hero-arch">
+                <span className="hero-aura" aria-hidden="true" />
+                <div className="hero-inner">
+                  <Image
+                    src={coupleCutout}
+                    alt="Norbé et Ericka, main dans la main, en tenue traditionnelle blanche et or"
+                    className="hero-couple"
+                    priority
+                    placeholder="empty"
+                    sizes="(max-width: 640px) 72vw, 290px"
+                  />
+                  <span className="hero-shimmer" aria-hidden="true" />
+                </div>
+                {HERO_SPARKS.map((s, i) => (
+                  <span key={i} className="hero-spark" style={s.style} aria-hidden="true" />
+                ))}
+              </div>
+            </div>
+
             {/* Les mariés */}
             <div className="mt-6 sm:mt-8">
-              <p className="name-serif name-terra reveal" style={d("0.2s")}>
+              <p className="name-serif name-terra reveal" style={d("0.32s")}>
                 NORBÉ
               </p>
-              <blockquote className="verse max-w-md mx-auto mt-3 reveal" style={d("0.3s")}>
+              <blockquote className="verse max-w-md mx-auto mt-3 reveal" style={d("0.42s")}>
                 « Chaque maison est construite par quelqu&apos;un, mais celui qui a construit
                 toutes choses, c&apos;est Dieu. »
                 <span className="verse-ref block mt-1.5">— Hébreux 3:4</span>
               </blockquote>
 
-              <div className="my-5 sm:my-6 reveal" style={d("0.42s")}>
+              <div className="my-5 sm:my-6 reveal" style={d("0.52s")}>
                 <AmpMedallion />
               </div>
 
-              <p className="name-serif name-olive reveal" style={d("0.52s")}>
+              <p className="name-serif name-olive reveal" style={d("0.62s")}>
                 ERICKA
               </p>
-              <blockquote className="verse max-w-md mx-auto mt-3 reveal" style={d("0.62s")}>
+              <blockquote className="verse max-w-md mx-auto mt-3 reveal" style={d("0.72s")}>
                 « Et si quelqu&apos;un est plus fort qu&apos;un seul, les deux peuvent lui
                 résister ; et la corde à trois fils ne se rompt pas facilement. »
                 <span className="verse-ref block mt-1.5">— Ecclésiaste 4:12</span>
@@ -96,25 +129,25 @@ export function Invitation({ onReplay }: { onReplay: () => void }) {
             </div>
 
             {/* Invitation */}
-            <p className="invite-text max-w-lg mx-auto mt-7 reveal" style={d("0.74s")}>
+            <p className="invite-text max-w-lg mx-auto mt-7 reveal" style={d("0.84s")}>
               ont l&apos;immense plaisir de vous convier à la célébration de leur union{" "}
               <strong className="invite-strong">civile et religieuse</strong> qui aura lieu
             </p>
 
             {/* Date */}
-            <div className="mt-5 reveal" style={d("0.85s")}>
+            <div className="mt-5 reveal" style={d("0.95s")}>
               <div className="date-banner mx-auto">
                 <span className="date-text block">21 NOVEMBRE 2026</span>
               </div>
             </div>
 
             {/* Compte à rebours */}
-            <section className="mt-7 sm:mt-8 reveal" style={d("0.95s")} aria-label="Compte à rebours">
+            <section className="mt-7 sm:mt-8 reveal" style={d("1.05s")} aria-label="Compte à rebours">
               <Countdown />
             </section>
 
             {/* Programme */}
-            <section className="mt-8 sm:mt-10 reveal" style={d("1.05s")} aria-label="Programme de la journée">
+            <section className="mt-8 sm:mt-10 reveal" style={d("1.15s")} aria-label="Programme de la journée">
               <p className="inv-label">Programme de la journée</p>
               <HeartDivider className="w-40 mx-auto mt-2.5" />
 
@@ -142,7 +175,7 @@ export function Invitation({ onReplay }: { onReplay: () => void }) {
             </section>
 
             {/* Conclusion */}
-            <footer className="mt-9 sm:mt-11 reveal" style={d("1.2s")}>
+            <footer className="mt-9 sm:mt-11 reveal" style={d("1.3s")}>
               <RingsLaurel className="w-36 sm:w-44 mx-auto opacity-90" />
               <p className="script-closing mt-1">Nous vous attendons avec joie !</p>
               <p className="inv-label mt-5" style={{ letterSpacing: "0.22em" }}>

@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { MousePointerClick } from "lucide-react";
+import coupleCutout from "@/assets/norbe-ericka.webp";
 import { RingsLaurel, BokehBackground } from "./ornaments";
 
 export type DoorPhase = "closed" | "opening" | "fading";
@@ -59,6 +61,17 @@ export function DoorScene({ phase, onOpen }: { phase: DoorPhase; onOpen: () => v
         <span className="door-frame block">
           <span className="door-wall block">
             <span className="door-glow" aria-hidden="true" />
+            {/* Norbé & Ericka apparaissent dans la lumière dès que les vantails s'écartent */}
+            <span className="door-reveal" aria-hidden="true">
+              <span className="reveal-halo" />
+              <Image
+                src={coupleCutout}
+                alt=""
+                className="reveal-couple"
+                priority
+                placeholder="empty"
+              />
+            </span>
             <span className="door-stage" aria-hidden="true">
               {/* vantail gauche */}
               <span className="door-panel left">
